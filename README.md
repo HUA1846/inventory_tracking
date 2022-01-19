@@ -16,3 +16,5 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
+
+4. In the app, click the download link to export a .csv file of the inventory
