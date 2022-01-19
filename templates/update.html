@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title xmlns="http://www.w3.org/1999/html">Amazing Farm</title>
+{% endblock %}
+
+{% block body %}
+<h1>Update Item</h1>
+<form action="/update/{{ item.id }}" method="POST">
+    <input type="text" name="category" id="category" value="{{ item.category }}">
+    <input type="text" name="name" id="name" value="{{ item.name }}">
+    <input type="number" name="price" id="price" step="any" value="{{ item.price }}">
+    <input type="text" name="unit" id="unit" value="{{ item.unit }}">
+    <input type="submit" value="Update">
+</form>
+
+{% endblock %}

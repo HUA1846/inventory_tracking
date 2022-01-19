@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title xmlns="http://www.w3.org/1999/html">Amazing Farm</title>
+{% endblock %}
+
+{% block body %}
+<h1>Add an item</h1>
+<form action="/" method="POST">
+    <input type="text" name="category" id="category" placeholder="category">
+    <input type="text" name="name" id="name" placeholder="Item Name">
+    <input type="number" name="price" id="price" value="0.00" step="any">
+    <input type="text" name="unit" id="unit" placeholder="Unit">
+    <input type="submit" value="Submit">
+</form>
+<hr>
+<h1>Item Inventory</h1>
+<a href="/download">Download to CSV</a>
+<div id="content" style="text-align: center">
+     <table>
+        <tr>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Unit</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.category }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.unit }}</td>
+                <td>
+                    <a href="/update/{{ item.id }}">Update</a>
+                </td>
+                <td>
+                    <a href="/delete/{{ item.id }}">Delete</a>
+                </td>
+            </tr>
+       {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}
